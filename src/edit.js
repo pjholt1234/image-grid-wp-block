@@ -1,11 +1,11 @@
 import { MediaUpload, MediaUploadCheck, InnerBlocks, InspectorControls } from '@wordpress/block-editor';
-import { Button, PanelBody } from '@wordpress/components';
+import { Button, PanelBody, RangeControl } from '@wordpress/components';
 import { useBlockProps } from '@wordpress/block-editor';
 import { LogoGrid } from './LogoGrid';
 import './editor.scss';
 
 export default function Edit( { attributes, setAttributes } ) {
-	const { logos } = attributes;
+	const { logos, columns } = attributes;
 	const blockProps = useBlockProps();
 
 	const onSelectLogos = ( newLogos ) => {
@@ -30,9 +30,17 @@ export default function Edit( { attributes, setAttributes } ) {
 							) }
 						/>
 					</MediaUploadCheck>
+					<RangeControl
+						label="Number of columns"
+						value={ columns }
+						onChange={ ( newColumns ) => setAttributes( { columns: newColumns } ) }
+						min={ 1 }
+						max={ 4 }
+						defaultValue={ 3 }
+					/>
 				</PanelBody>
 			</InspectorControls>
-			<LogoGrid logos={ logos } />
+			<LogoGrid key={1} logos={ logos } columns={columns}/>
 			<InnerBlocks />
 		</div>
 	);

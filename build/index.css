@@ -10,12 +10,4 @@
   border: 1px dotted #f00;
 }
 
-.wp-block-create-block-logo-grid img {
-  width: 300px;
-  max-height: 100px;
-  font-family: "object-fit:cover";
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
 /*# sourceMappingURL=index.css.map*/

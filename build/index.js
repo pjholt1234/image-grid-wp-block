@@ -16,12 +16,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 function LogoGrid({
-  logos
+  logos,
+  columns
 }) {
+  console.log('testing', columns);
+  let containerClass = '';
+  switch (columns) {
+    case 2:
+      containerClass = 'logo-container--lg';
+      break;
+    case 3:
+      containerClass = 'logo-container--md';
+      break;
+    case 4:
+      containerClass = 'logo-container--sm';
+      break;
+    default:
+      containerClass = 'logo-container--xl';
+  }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "logo-grid-container"
-  }, logos.map(logo => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "logo-container"
+    className: "logo-grid-container",
+    style: {
+      '--columns': columns
+    }
+  }, logos.map((logo, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: containerClass,
+    key: index
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "logo",
     src: logo.url,
@@ -61,7 +81,8 @@ function Edit({
   setAttributes
 }) {
   const {
-    logos
+    logos,
+    columns
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)();
   const onSelectLogos = newLogos => {
@@ -85,8 +106,19 @@ function Edit({
       className: "upload-btn",
       onClick: open
     }, "Upload Logos")
-  })))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_LogoGrid__WEBPACK_IMPORTED_MODULE_3__.LogoGrid, {
-    logos: logos
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RangeControl, {
+    label: "Number of columns",
+    value: columns,
+    onChange: newColumns => setAttributes({
+      columns: newColumns
+    }),
+    min: 1,
+    max: 4,
+    defaultValue: 3
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_LogoGrid__WEBPACK_IMPORTED_MODULE_3__.LogoGrid, {
+    key: 1,
+    logos: logos,
+    columns: columns
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, null));
 }
 
@@ -139,12 +171,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 function LogoGrid({
-  logos
+  logos,
+  columns
 }) {
+  console.log('testing', columns);
+  let containerClass = '';
+  switch (columns) {
+    case 2:
+      containerClass = 'logo-container--lg';
+      break;
+    case 3:
+      containerClass = 'logo-container--md';
+      break;
+    case 4:
+      containerClass = 'logo-container--sm';
+      break;
+    default:
+      containerClass = 'logo-container--xl';
+  }
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "logo-grid-container"
-  }, logos.map(logo => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "logo-container"
+    className: "logo-grid-container",
+    style: {
+      '--columns': columns
+    }
+  }, logos.map((logo, index) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: containerClass,
+    key: index
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     className: "logo",
     src: logo.url,
@@ -181,12 +233,14 @@ function Save({
 }) {
   const blockProps = _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save();
   const {
-    logos
+    logos,
+    columns
   } = attributes;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_logoGrid__WEBPACK_IMPORTED_MODULE_3__.LogoGrid, {
-    logos: logos
+    logos: logos,
+    columns: columns
   }));
 }
 
@@ -262,7 +316,7 @@ module.exports = window["wp"]["components"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/logo-grid","title":"Logo Grid","category":"widgets","attributes":{"logos":{"type":"array","default":[]}},"supports":{"align":["wide","full"]},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/logo-grid","title":"Logo Grid","category":"widgets","attributes":{"logos":{"type":"array","default":[]},"columns":{"type":"number","default":3}},"supports":{"align":["wide","full"]},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

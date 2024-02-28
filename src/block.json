@@ -8,6 +8,10 @@
 	"logos": {
 	  "type": "array",
 	  "default": []
+	},
+	"columns": {
+	  "type": "number",
+	  "default": 3
 	}
   },
   "supports": {

@@ -5,11 +5,11 @@ import {LogoGrid} from "./logoGrid";
 
 export default function Save({ attributes }) {
 	const blockProps = useBlockProps.save();
-	const { logos } = attributes;
+	const { logos, columns } = attributes;
 
 	return (
 		<div { ...blockProps }>
-			<LogoGrid logos={ logos } />
+			<LogoGrid logos={ logos } columns={columns}/>
 		</div>
 	);
 }
