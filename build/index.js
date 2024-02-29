@@ -174,7 +174,6 @@ function LogoGrid({
   logos,
   columns
 }) {
-  console.log('testing', columns);
   let containerClass = '';
   switch (columns) {
     case 2:
@@ -240,7 +239,7 @@ function Save({
     ...blockProps
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_logoGrid__WEBPACK_IMPORTED_MODULE_3__.LogoGrid, {
     logos: logos,
-    columns: columns
+    columns: String(columns)
   }));
 }
 
@@ -316,7 +315,7 @@ module.exports = window["wp"]["components"];
   \************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/logo-grid","title":"Logo Grid","category":"widgets","attributes":{"logos":{"type":"array","default":[]},"columns":{"type":"number","default":3}},"supports":{"align":["wide","full"]},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":2,"name":"create-block/logo-grid","title":"Logo Grid","category":"widgets","attributes":{"logos":{"type":"array","default":[]},"columns":{"type":"number","default":2}},"supports":{"align":["wide","full"]},"editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

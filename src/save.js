@@ -9,7 +9,7 @@ export default function Save({ attributes }) {
 
 	return (
 		<div { ...blockProps }>
-			<LogoGrid logos={ logos } columns={columns}/>
+			<LogoGrid logos={ logos } columns={String(columns)}/>
 		</div>
 	);
 }

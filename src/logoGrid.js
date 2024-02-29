@@ -1,7 +1,4 @@
 export function LogoGrid({ logos, columns }) {
-
-	console.log('testing', columns);
-
 	let containerClass = '';
 
 	switch(columns) {
